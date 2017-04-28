@@ -146,7 +146,6 @@ if has("autocmd")
 endif
 
 
-
 "dein Scripts-----------------------------
 if &compatible
     set nocompatible               " Be iMproved
