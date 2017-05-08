@@ -1,3 +1,7 @@
+dotfileの管理用リポジトリ
+今は.vimrcのみ
+
+.vimrc
 NeoVim用の設定ファイル
 プラグイン管理はdeinを利用
 javscriptを書くために使う
