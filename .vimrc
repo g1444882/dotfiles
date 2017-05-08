@@ -90,7 +90,6 @@ set showmatch
 "ノーマルモード時％で対応するカッコに移動
 source $VIMRUNTIME/macros/matchit.vim
 
-
 " タブバーを常に表示する
 set showtabline=4
 
@@ -171,6 +170,7 @@ if dein#load_state('/Users/yutanaka/.cache/dein')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('honza/vim-snippets')
     "スニペット
+    call dein#add('Valloric/YouCompleteMe')
     call dein#add('mattn/jscomplete-vim')
     call dein#add('marijnh/tern_for_vim')
     "javascriptの補完
@@ -201,6 +201,7 @@ if dein#load_state('/Users/yutanaka/.cache/dein')
     call dein#add('hail2u/vim-css3-syntax')
     "CSSの色付け
     call dein#add('othree/yajs.vim')
+    call dein#add('MaxMEllon/vim-jsx-pretty')
     "javascript色付け
     call dein#add('tyru/open-browser.vim')
     "vimでブラウザを開く
@@ -245,3 +246,22 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippet/'
+
+" vim-jsx用の設定
+let g:jsx_ext_required = 1        " ファイルタイプがjsxのとき読み込む．
+let g:jsx_pragma_required = 0     " @から始まるプラグマでは読み込まない．
+
+augroup Vimrc
+  autocmd!
+  autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
+
+"YouCompleteMeの設定
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+let g:EclimCompletionMethod = 'omnifunc'
+autocmd Vimrc FileType javascript nnoremap ,gd :<C-u>YcmCompleter GetDoc<CR>
+autocmd Vimrc Filetype javascript nnoremap ,gt :<C-u>YcmCompleter GoTo<CR>
+autocmd Vimrc FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
