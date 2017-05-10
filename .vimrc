@@ -61,17 +61,8 @@ set list
 set listchars=eol:¬
 
 " マウスでカーソル移動とスクロール
-"----------------------------------------------------------
-if has('mouse')
-    set mouse=a
-    if has('mouse_sgr')
-        set ttymouse=sgr
-    elseif v:version > 703 || v:version is 703 && has('patch632')
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
-    endif
-endif
+set mouse=a
+set ttymouse=xterm2
 
 " ファイル上書き時にバックアップをとらない
 set nobackup
@@ -241,10 +232,7 @@ if dein#load_state('/Users/yutanaka/.cache/dein')
     call dein#save_state()
 endif
 
-" Required:
-if dein#is_installed('molokai')
-    colorscheme molokai
-endif
+colorscheme molokai
 syntax enable
 filetype plugin indent on
 
@@ -280,8 +268,8 @@ let g:jsx_ext_required = 1        " ファイルタイプがjsxのとき読み�
 let g:jsx_pragma_required = 0     " @から始まるプラグマでは読み込まない．
 
 augroup Vimrc
-  autocmd!
-  autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+    autocmd!
+    autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
 
 "YouCompleteMeの設定
