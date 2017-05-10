@@ -62,7 +62,6 @@ set listchars=eol:¬
 
 " マウスでカーソル移動とスクロール
 set mouse=a
-set ttymouse=xterm2
 
 " ファイル上書き時にバックアップをとらない
 set nobackup
