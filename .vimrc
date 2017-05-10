@@ -1,3 +1,13 @@
+set encoding=utf8
+scriptencoding utf8
+set fileencoding=utf8  " 保存時の文字コード
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+" ↑1行目は読み込み時の文字コードの設定
+" ↑2行目はVim Script内でマルチバイトを使う場合の設定
+" Vim scritptにvimrcも含まれるので、日本語でコメントを書く場合は先頭にこの設定が必要になる
+" フォーマットの設定
+set fileformats=unix,dos,mac
+
 " 改行時に自動でインデントを行なう
 set autoindent
 set smartindent
@@ -20,14 +30,7 @@ set confirm
 " カーソル行を強調表示する
 set cursorline
 
-" 文字コードを設定する
-set encoding=utf8
-set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
-set fileencoding=utf8
-scriptencoding utf8
 
-" フォーマットの設定
-set fileformats=unix,dos,mac
 " タブの代わりにスペースを挿入する
 set expandtab
 
@@ -57,8 +60,18 @@ set list
 " 不可視文字の表示方法を設定する
 set listchars=eol:¬
 
-" マウスを有効にする
-set mouse=a
+" マウスでカーソル移動とスクロール
+"----------------------------------------------------------
+if has('mouse')
+    set mouse=a
+    if has('mouse_sgr')
+        set ttymouse=sgr
+    elseif v:version > 703 || v:version is 703 && has('patch632')
+        set ttymouse=sgr
+    else
+        set ttymouse=xterm2
+    endif
+endif
 
 " ファイル上書き時にバックアップをとらない
 set nobackup
@@ -130,14 +143,14 @@ set wrap
 " 検索時に最後まで移動したら最初に戻る
 set wrapscan
 
+" カーソルの左右移動で行末から次の行の行頭への移動が可能になる
+set whichwrap=b,s,h,l,<,>,[,],~
+set cursorline " カーソルラインをハイライト
 "行が折り返されているときに表示行単位でカーソル移動
 nnoremap j gj
 nnoremap k gk
 nnoremap <down> gj
 nnoremap <up> gk
-
-" ファイルタイプのインデントを有効にする
-filetype plugin indent on
 
 " 最後のカーソル位置を復元する
 if has("autocmd")
@@ -147,6 +160,19 @@ if has("autocmd")
                 \ endif
 endif
 
+" 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 
 "dein Scripts-----------------------------
@@ -216,7 +242,9 @@ if dein#load_state('/Users/yutanaka/.cache/dein')
 endif
 
 " Required:
-colorscheme molokai
+if dein#is_installed('molokai')
+    colorscheme molokai
+endif
 syntax enable
 filetype plugin indent on
 
