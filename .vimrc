@@ -118,6 +118,9 @@ set title
 " ビープを無効にする
 set visualbell t_vb=
 
+"clipboard を有効にする
+set clipboard+=unnamedplus
+
 " 行頭・行末の左右移動で行を移動する
 set whichwrap=b,s,h,l,<,>,[,]
 
