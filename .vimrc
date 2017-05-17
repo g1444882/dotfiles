@@ -60,9 +60,6 @@ set list
 " 不可視文字の表示方法を設定する
 set listchars=eol:¬
 
-" マウスでカーソル移動とスクロール
-set mouse=a
-
 " ファイル上書き時にバックアップをとらない
 set nobackup
 set nowritebackup
