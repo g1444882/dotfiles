@@ -15,6 +15,8 @@ set smartindent
 "jjでESCと同じ
 inoremap <silent> jj <ESC>
 
+"terminal modeのときESCでnormal modeに
+tnoremap <silent> <ESC> <C-\><C-n>
 " ファイルが外部で変更された際に自動で読み込む
 set autoread
 
