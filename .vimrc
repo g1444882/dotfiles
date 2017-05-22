@@ -18,6 +18,9 @@ inoremap <silent> jj <ESC>
 " ファイルが外部で変更された際に自動で読み込む
 set autoread
 
+"マウスを無効にする
+set mouse-=a
+
 " バックスペースの影響範囲を設定する
 set backspace=indent,eol,start
 
