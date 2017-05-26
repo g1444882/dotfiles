@@ -17,6 +17,10 @@ inoremap <silent> jj <ESC>
 
 "terminal modeのときESCでnormal modeに
 tnoremap <silent> <ESC> <C-\><C-n>
+
+"term でターミナルを開く
+command term terminal
+
 " ファイルが外部で変更された際に自動で読み込む
 set autoread
 
@@ -242,7 +246,7 @@ filetype plugin indent on
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
-    call dein#install()
+    all dein#install()
 endif
 "End dein Scripts-------------------------
 
