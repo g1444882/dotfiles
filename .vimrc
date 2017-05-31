@@ -93,6 +93,7 @@ set showcmd
 
 " 対応するカッコを強調表示する
 set showmatch
+
 "ノーマルモード時％で対応するカッコに移動
 source $VIMRUNTIME/macros/matchit.vim
 
@@ -102,14 +103,11 @@ set showtabline=4
 " 検索文字列に大文字が含まれている場合は区別して検索する
 set smartcase
 
-" 改行入力行の末尾にあわせてインデントを増減する
-set smartindent
-
 " コンテキストに応じたタブの処理を行なう
 set smarttab
 
 " タブやバックスペースで処理するスペースの数を設定する
-set softtabstop=0
+set softtabstop=4
 
 " 新しいウィンドウを下/右に開く
 set splitbelow
