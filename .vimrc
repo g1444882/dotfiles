@@ -229,7 +229,11 @@ if dein#load_state('/Users/yutanaka/.cache/dein')
     "ブラウザの自動再読込み
     call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
     " You can specify revision/branch/tag.
-
+    call dein#add('kana/vim-submode')
+    "サブモードの設定
+    call dein#add('kana/vim-smartchr')
+    "pythonの補完入力
+    call dein#add('davidhalter/jedi-vim')
     " Required:
     call dein#end()
     call dein#save_state()
@@ -312,3 +316,21 @@ nnoremap sq :<C-u>q<CR>
 nnoremap sQ :<C-u>bd<CR>
 nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
+"smartchr vimテクニックバイブルより
+inoremap <buffer> <expr> = smartchr#loop(' =  ', '=', ' == ', ' === ')
+inoremap <buffer> <expr> <S-=> smartchr#loop(' + ', '+')
+inoremap <buffer> <expr> - smartchr#loop(' - ', '-')
+inoremap <buffer> <expr> , smartchr#loop(', ', ',')
+inoremap <buffer> <expr> . smartchr#loop('.', '<%=  %>', '<%  %>')
+cnoremap <buffer> <expr> / smartchr#loop('/', '~/', '//', {'ctype': ':'})
+
