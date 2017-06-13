@@ -327,7 +327,7 @@ call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 
 "smartchr vimテクニックバイブルより
-inoremap <buffer> <expr> = smartchr#loop(' =  ', '=', ' == ', ' === ')
+inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
 inoremap <buffer> <expr> <S-=> smartchr#loop(' + ', '+')
 inoremap <buffer> <expr> - smartchr#loop(' - ', '-')
 inoremap <buffer> <expr> , smartchr#loop(', ', ',')
