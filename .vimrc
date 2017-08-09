@@ -290,32 +290,32 @@ autocmd Vimrc Filetype javascript nnoremap ,gt :<C-u>YcmCompleter GoTo<CR>
 autocmd Vimrc FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 "画面分割のキー設定
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-nnoremap sH <C-w>H
-nnoremap sn gt
-nnoremap sp gT
-nnoremap sr <C-w>r
-nnoremap s= <C-w>=
-nnoremap sw <C-w>w
-nnoremap so <C-w>_<C-w>|
-nnoremap sO <C-w>=
-nnoremap sN :<C-u>bn<CR>
-nnoremap sP :<C-u>bp<CR>
-nnoremap st :<C-u>tabnew<CR>
-nnoremap sT :<C-u>Unite tab<CR>
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
-nnoremap sq :<C-u>q<CR>
-nnoremap sQ :<C-u>bd<CR>
-nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+nnoremap S <Nop>
+nnoremap Sj <C-w>j
+nnoremap Sk <C-w>k
+nnoremap Sl <C-w>l
+nnoremap Sh <C-w>h
+nnoremap SJ <C-w>J
+nnoremap SK <C-w>K
+nnoremap SL <C-w>L
+nnoremap SH <C-w>H
+nnoremap Sn gt
+nnoremap Sp gT
+nnoremap Sr <C-w>r
+nnoremap S= <C-w>=
+nnoremap Sw <C-w>w
+nnoremap So <C-w>_<C-w>|
+nnoremap SO <C-w>=
+nnoremap SN :<C-u>bn<CR>
+nnoremap SP :<C-u>bp<CR>
+nnoremap St :<C-u>tabnew<CR>
+nnoremap ST :<C-u>Unite tab<CR>
+nnoremap Ss :<C-u>sp<CR>
+nnoremap Sv :<C-u>vs<CR>
+nnoremap Sq :<C-u>q<CR>
+nnoremap SQ :<C-u>bd<CR>
+nnoremap Sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap SB :<C-u>Unite buffer -buffer-name=file<CR>
 
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
