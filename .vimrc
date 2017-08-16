@@ -289,29 +289,6 @@ autocmd Vimrc FileType javascript nnoremap ,gd :<C-u>YcmCompleter GetDoc<CR>
 autocmd Vimrc Filetype javascript nnoremap ,gt :<C-u>YcmCompleter GoTo<CR>
 autocmd Vimrc FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-"画面分割のキー設定
-nnoremap S <Nop>
-nnoremap SJ <C-w>j
-nnoremap SK <C-w>k
-nnoremap SL <C-w>l
-nnoremap SH <C-w>h
-nnoremap Sn gt
-nnoremap Sp gT
-nnoremap Sr <C-w>r
-nnoremap S= <C-w>=
-nnoremap Sw <C-w>w
-nnoremap So <C-w>_<C-w>|
-nnoremap SO <C-w>=
-nnoremap SN :<C-u>bn<CR>
-nnoremap SP :<C-u>bp<CR>
-nnoremap St :<C-u>tabnew<CR>
-nnoremap ST :<C-u>Unite tab<CR>
-nnoremap SS :<C-u>sp<CR>
-nnoremap SV :<C-u>vs<CR>
-nnoremap Sq :<C-u>q<CR>
-nnoremap SQ :<C-u>bd<CR>
-nnoremap Sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
-nnoremap SB :<C-u>Unite buffer -buffer-name=file<CR>
 
 call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
 call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
@@ -329,4 +306,3 @@ inoremap <buffer> <expr> - smartchr#loop(' - ', '-')
 inoremap <buffer> <expr> , smartchr#loop(', ', ',')
 inoremap <buffer> <expr> . smartchr#loop('.', '<%=  %>', '<%  %>')
 cnoremap <buffer> <expr> / smartchr#loop('/', '~/', '//', {'ctype': ':'})
-
